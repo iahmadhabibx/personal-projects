@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic - Tac - Toe</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="contaianer">
+        <div class="win-modal no-display" id="win-modal">
+            <div class="modal-body">
+                <div class="win-message" id="bot-win"></div>
+                <button onclick="reset_game()" class="reset">Play again</button>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-title">Tic - Tac -Toe</div>
+            <div class="selections">
+                <div class="selection" id="selection-1">
+                    Play with bot
+                </div>
+                <div class="selection no-display" id="selection-2">
+                    Play multiplayer
+                </div>
+
+                <label class="switch"><input type="checkbox" onchange="switchUsers()" />
+                    <div></div>
+                </label>
+            </div>
+        </div>
+
+        <div class="game-body" id="game-body">
+            <div class="canvas">
+                <div class="strike-through no-display" id="win-strike"></div>
+                <div class="row" id="row-1">
+                    <div class="box box-1" id="a1" onclick="markIt('a1')"></div>
+                    <div class="box box-2" id="a2" onclick="markIt('a2')"></div>
+                    <div class="box box-3" id="a3" onclick="markIt('a3')"></div>
+                </div>
+                <div class="row" id="row-2">
+                    <div class="box box-4" id="b1" onclick="markIt('b1')"></div>
+                    <div class="box box-5" id="b2" onclick="markIt('b2')"></div>
+                    <div class="box box-6" id="b3" onclick="markIt('b3')"></div>
+                </div>
+                <div class="row" id="row-3">
+                    <div class="box box-7" id="c1" onclick="markIt('c1')"></div>
+                    <div class="box box-8" id="c2" onclick="markIt('c2')"></div>
+                    <div class="box box-9" id="c3" onclick="markIt('c3')"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

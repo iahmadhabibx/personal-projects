@@ -1,0 +1,244 @@
+.switch input {
+    position: absolute;
+    opacity: 0;
+}
+
+.switch {
+    display: inline-block;
+    font-size: 20px;
+    /* 1 */
+    height: 1em;
+    width: 2em;
+    background: #BDB9A6;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.switch div {
+    height: 1em;
+    width: 1em;
+    border-radius: 1em;
+    background: #FFF;
+    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    transition: all 300ms;
+}
+
+.switch input:checked+div {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+
+/* ################################################# */
+
+.header-title {
+    text-align: center;
+    font-size: 29px;
+    font-weight: 700;
+}
+
+.no-display {
+    display: none;
+}
+
+.no-pointer-event {
+    pointer-events: none;
+}
+
+.selections {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    width: 160px;
+}
+
+.selection {
+    flex-grow: 1;
+    flex-grow: 1;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/*##########################    GAME CANVAS    #################################*/
+
+.game-body {
+    position: relative;
+    top: 100px;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.game-body .canvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.game-body .canvas .row {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.game-body .canvas .row .box {
+    width: 200px;
+    cursor: pointer;
+    height: 100%;
+    transition: background-color 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-body .canvas .row .box:hover {
+    background-color: #d7d2bb38;
+}
+
+/* ROW 1 */
+
+.box-1 {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.box-2 {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.box-3 {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+/* ROW 2 */
+
+.box-4 {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.box-5 {
+    border: 1px solid black;
+}
+
+.box-6 {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+/* ROW 3 */
+
+.box-7 {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.box-8 {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.box-9 {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+}
+
+.strike-through {
+    width: 600px;
+    height: 5px;
+    border-radius: 4px;
+    background-color: red;
+    position: absolute;
+}
+
+.bottom-100px {
+    bottom: 100px;
+}
+
+.top-100px {
+    top: 100px;
+}
+
+.top-300px {
+    top: 300px;
+}
+
+.left-trasnlate-90 {
+    top: 300px;
+    transform: rotate( 90deg);
+    left: -200px;
+}
+
+.middle-trasnlate-90 {
+    top: 300px;
+    transform: rotate( 90deg);
+    left: 0px;
+}
+
+.right-trasnlate-90 {
+    top: 300px;
+    transform: rotate( 90deg);
+    left: 200px;
+}
+
+.diagonal {
+    top: 300px;
+    transform: rotate( 45deg);
+}
+
+.anti-diagonal {
+    top: 300px;
+    transform: rotate( 135deg);
+}
+
+.win-modal {
+    position: absolute;
+    width: 600px;
+    height: 100vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    color: #fff;
+    flex-direction: column;
+    background: rgba(0,0,0,0.8);
+    border-radius: 4px;
+}
+.win-message {
+    font-size: 20px;
+    padding: 0 0 20px 0;
+}
+.reset {
+    background: chocolate;
+    border: navajowhite;
+    padding: 6px 10px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in;
+    outline: none;
+}
+
+.reset:hover {
+    transform: scale(1.1);
+}
