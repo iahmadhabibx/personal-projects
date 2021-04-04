@@ -1,0 +1,48 @@
+#toasts {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.toast {
+    background-color: #fff;
+    color: rebeccapurple;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    margin: .5rem;
+}
+.fade-away {
+    animation: fadeAway .5s ease-out;
+} 
+.fade-in {
+    animation: fadeIn .5s ease-out;
+} 
+.toast.info {
+    color: orange;
+}
+.toast.success {
+    color: green;
+}
+.toast.error {
+    color: red;
+}
+
+@keyframes fadeAway {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
