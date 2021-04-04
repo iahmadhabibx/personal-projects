@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image - editor</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header" id="initialHeader">
+            <div class="header-title">Welcome to the image editor, Upload an image</div>
+            <div class="header-title">(PNG - JPG - JPEG)</div>
+            
+            <label for="imageFile" class="btn-upload">
+                Upload
+            </label>
+            <input type="file" id="imageFile" onchange="onUploadFile(event)" style="visibility: hidden;">
+
+            <div id="error-message"></div>
+        </div>
+
+        <div class="header display-none" id="secondaryHeader" onclick="onCancelImageEdit()">
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#f44336"/><path d="m350.273438 320.105469c8.339843 8.34375 8.339843 21.824219 0 30.167969-4.160157 4.160156-9.621094 6.25-15.085938 6.25-5.460938 0-10.921875-2.089844-15.082031-6.25l-64.105469-64.109376-64.105469 64.109376c-4.160156 4.160156-9.621093 6.25-15.082031 6.25-5.464844 0-10.925781-2.089844-15.085938-6.25-8.339843-8.34375-8.339843-21.824219 0-30.167969l64.109376-64.105469-64.109376-64.105469c-8.339843-8.34375-8.339843-21.824219 0-30.167969 8.34375-8.339843 21.824219-8.339843 30.167969 0l64.105469 64.109376 64.105469-64.109376c8.34375-8.339843 21.824219-8.339843 30.167969 0 8.339843 8.34375 8.339843 21.824219 0 30.167969l-64.109376 64.105469zm0 0" fill="#fafafa"/></svg>
+        </div>
+
+        <div class="body display-none">
+            <div class="canvas">
+                <div class="tools-container shadow">
+                    <div class="tools">
+                        <button class="tool" onclick="onTextAdded()" id="text-element">
+                            <svg enable-background="new 0 0 467.765 467.765" height="512" viewBox="0 0 467.765 467.765" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m175.412 87.706h58.471v29.235h58.471v-87.706h-292.354v87.706h58.471v-29.235h58.471v292.353h-58.471v58.471h175.383v-58.471h-58.442z"/><path d="m233.882 175.412v87.706h58.471v-29.235h29.235v146.176h-29.235v58.471h116.941v-58.471h-29.235v-146.177h29.235v29.235h58.471v-87.706h-233.883z"/></svg>
+                        </button>
+    
+                        <div class="hoverable-dropdown">
+                            <button class="tool hoverable">
+                                <svg enable-background="new 0 0 451.111 451.111" height="512" viewBox="0 0 451.111 451.111" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m290 0 56.389 56.389-88.611 88.611 48.333 48.333 88.611-88.611 56.389 56.389v-161.111z"/><path d="m145 257.778-88.611 88.611-56.389-56.389v161.111h161.111l-56.389-56.389 88.611-88.611z"/><path d="m306.111 257.778-48.333 48.333 88.611 88.611-56.389 56.389h161.111v-161.111l-56.389 56.389z"/><path d="m161.111 0h-161.111v161.111l56.389-56.389 88.611 88.611 48.333-48.333-88.611-88.611z"/></svg>
+                            </button>
+
+                            <div class="hoverable-dropdown-items">
+                                <div class="hoverable-dropdown-item">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <path d="M163.708,74.319h-31.556L0,451.899h42.45l33.656-96.161h142.308l33.176,96.161h42.385L163.708,74.319z M90.13,315.671
+                                                    l57.642-164.693l56.819,164.693H90.13z"/>
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <polygon points="483.669,60.101 417.7,126.069 351.731,60.101 323.4,88.432 417.7,182.732 512,88.432 		"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <input type="number" min="1" class="text-size" onchange="onTextSizeChange(event)">
+                                </div>
+
+                                <div class="hoverable-dropdown-item" onclick="formatText('center')">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        viewBox="0 0 426.667 426.667" style="enable-background:new 0 0 426.667 426.667;" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <rect x="85.333" y="320" width="256" height="42.667"/>
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <rect x="64" y="149.333" width="298.667" height="42.667"/>
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <rect y="64" width="426.667" height="42.667"/>
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <rect x="21.333" y="234.667" width="384" height="42.667"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="item-text">Align center</span>
+                                </div>
+
+                                <div class="hoverable-dropdown-item" onclick="formatText('left')">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        width="95px" height="95px" viewBox="0 0 95 95" style="enable-background:new 0 0 95 95;" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <path d="M89.066,17.079h-58.73c-1.104,0-2-0.896-2-2V2c0-1.104,0.896-2,2-2h58.73c1.104,0,2,0.896,2,2v13.079
+                                                    C91.066,16.184,90.171,17.079,89.066,17.079z"/>
+                                                <path d="M5.933,25.973h83.135c1.104,0,2,0.896,2,2v13.079c0,1.104-0.896,2-2,2H5.933c-1.104,0-2-0.896-2-2V27.973
+                                                    C3.933,26.868,4.828,25.973,5.933,25.973z"/>
+                                                <path d="M89.066,69.027h-58.73c-1.104,0-2-0.896-2-2V53.948c0-1.104,0.896-2,2-2h58.73c1.104,0,2,0.896,2,2v13.079
+                                                    C91.066,68.132,90.171,69.027,89.066,69.027z"/>
+                                                <path d="M5.933,77.921h83.135c1.104,0,2,0.896,2,2V93c0,1.104-0.896,2-2,2H5.933c-1.104,0-2-0.896-2-2V79.921
+                                                    C3.933,78.816,4.828,77.921,5.933,77.921z"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="item-text">Align left</span>
+                                </div>
+                                
+                                <div class="hoverable-dropdown-item" onclick="formatText('right')">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        width="95px" height="95px" viewBox="0 0 95 95" style="enable-background:new 0 0 95 95;" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <path d="M5.933,17.079h58.73c1.104,0,2-0.896,2-2V2c0-1.104-0.896-2-2-2H5.933c-1.104,0-2,0.896-2,2v13.079
+                                                    C3.933,16.184,4.828,17.079,5.933,17.079z"/>
+                                                <path d="M89.066,25.973H5.933c-1.104,0-2,0.896-2,2v13.079c0,1.104,0.896,2,2,2h83.135c1.104,0,2-0.896,2-2V27.973
+                                                    C91.066,26.868,90.171,25.973,89.066,25.973z"/>
+                                                <path d="M5.933,69.027h58.73c1.104,0,2-0.896,2-2V53.948c0-1.104-0.896-2-2-2H5.933c-1.104,0-2,0.896-2,2v13.079
+                                                    C3.933,68.132,4.828,69.027,5.933,69.027z"/>
+                                                <path d="M89.066,77.921H5.933c-1.104,0-2,0.896-2,2V93c0,1.104,0.896,2,2,2h83.135c1.104,0,2-0.896,2-2V79.921
+                                                    C91.066,78.816,90.171,77.921,89.066,77.921z"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <span class="item-text">Align right</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tools">
+                        <button class="tool" id="boldText" onclick="onToggleBoldText()">
+                            <svg enable-background="new 0 0 512.047 512.047" height="512" viewBox="0 0 512.047 512.047" width="512" xmlns="http://www.w3.org/2000/svg"><g id="B"><path d="m334.568 507.618c83.832-9.523 131.455-77.588 131.455-150.791 0-52.632-25.84-95.229-70.518-118.681 29.941-24.111 47.651-61.656 47.651-102.174 0-64.556-46.699-119.575-111.05-130.854-45.293-7.877-113.853-4.022-286.083-5.071v511.941c40.109.208 248.486.099 288.545-4.37zm-164.531-397.573c14.517.109 100.222-.508 117.466 1.523 22.998 2.886 34.189 15.366 34.189 38.159 0 28.989-20.977 37.632-38.628 39.785-16.663 2.083-86.313 1.393-113.027 1.523zm0 191.719c26.149.741 115.186-2.538 139.204 5.991 19.644 7.046 29.604 22.002 29.604 44.487 0 24.902-12.466 40.942-35.083 45.176l-.41.088c-18.359 3.934-99.933 2.182-133.315 2.607z"/></g></svg>
+                        </button>
+                        <button class="tool" id="italicText" onclick="onToggleItalicText()">
+                            <svg enable-background="new 0 0 97.861 97.861" version="1.1" viewBox="0 0 97.861 97.861" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m87.494 0.763c-0.379-0.481-0.959-0.763-1.571-0.763h-53.512c-0.924 0-1.727 0.632-1.944 1.53l-2.204 9.115c-0.144 0.596-7e-3 1.225 0.373 1.707 0.379 0.481 0.958 0.763 1.571 0.763h18.803l-17.2 71.631h-17.665c-0.924 0-1.727 0.633-1.944 1.529l-2.205 9.115c-0.144 0.597-7e-3 1.226 0.373 1.707 0.379 0.481 0.958 0.764 1.571 0.764h53.512c0.924 0 1.727-0.633 1.943-1.53l2.204-9.114c0.144-0.597 7e-3 -1.226-0.373-1.707-0.379-0.481-0.958-0.764-1.571-0.764h-18.522l17.199-71.631h17.385c0.924 0 1.727-0.632 1.943-1.529l2.205-9.115c0.145-0.597 8e-3 -1.226-0.371-1.708z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="tools">
+                        <button class="tool">
+                            <input type="color" id="colors" value="#000" onchange="onTextColorChange(event)">
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="canvas-area">
+                    <div class="image-container"></div>
+
+                    <div class="range-slider display-none">
+                        <input onchange="onFilterValueUpdated(event)" value="1" type="range" min="0" max="100" class="range" id="range">
+                    </div>
+                </div>
+
+                <div class="tools-container relative-600">
+                    <div class="up" onclick="crouseImage(1)">
+                        <svg version="1.1"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 337.085 337.086" style="enable-background:new 0 0 337.085 337.086; width: 50px; height: 50px;"
+                            xml:space="preserve">
+                            <g>
+                                <path d="M168.54,0C75.619,0,0.012,75.609,0.012,168.543c0,92.93,75.606,168.543,168.528,168.543
+                                    c92.933,0,168.534-75.613,168.534-168.543C337.074,75.609,261.473,0,168.54,0z M271.405,224.327
+                                    c-2.407,2.402-5.561,3.615-8.713,3.615c-3.158,0-6.311-1.213-8.719-3.615L168.54,138.9l-85.424,85.427
+                                    c-4.816,4.815-12.631,4.815-17.447,0c-4.819-4.815-4.819-12.622,0-17.438l94.152-94.141c4.822-4.815,12.613-4.815,17.426,0
+                                    l94.152,94.141C276.221,211.705,276.221,219.512,271.405,224.327z"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="relative-h-570 overflow-hidden shadow">    
+                        <div class="filter-crousel">
+                            <div class="crousel-item" onclick="onApplyFilter(0)"><img src="./images/_1.png"></div>
+                            <div class="crousel-item" onclick="onApplyFilter(1)"><img src="./images/_2.png"></div>
+                            <div class="crousel-item" onclick="onApplyFilter(2)"><img src="./images/_3.png"></div>
+                            <div class="crousel-item" onclick="onApplyFilter(3)"><img src="./images/_4.png"></div>
+                            <div class="crousel-item" onclick="onApplyFilter(4)"><img src="./images/_5.png"></div>
+                            <div class="crousel-item" onclick="onApplyFilter(5)"><img src="./images/_6.png"></div>
+                            <div class="crousel-item" onclick="onApplyFilter(6)"><img src="./images/_7.png"></div>
+                            <div class="crousel-item" onclick="onApplyFilter(7)"><img src="./images/_8.png"></div>
+                            <div class="crousel-item" onclick="onApplyFilter(8)"><img src="./images/_9.png"></div>
+                            <div class="crousel-item" onclick="onApplyFilter(9)"><img src="./images/_10.png"></div>
+                            <!-- <div class="crousel-item" onclick="onApplyFilter(10)"><img src="./images/_11.png"></div> -->
+                        </div>
+                    </div>
+
+                    <div class="down" onclick="crouseImage(-1)">
+                        <svg version="1.1"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 612 612" style="enable-background:new 0 0 612 612; height: 50px; width: 50px;" xml:space="preserve">
+                            <g>
+                                <g id="_x33__24_">
+                                    <g>
+                                        <path d="M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306s306-137.012,306-306S475.008,0,306,0z M469.231,246.311
+                                            l-146.439,146.44c-4.59,4.59-10.863,6.005-16.811,4.973c-5.929,1.052-12.221-0.383-16.811-4.973l-146.44-146.44
+                                            c-7.478-7.478-7.478-19.565,0-27.043s19.584-7.478,27.042,0L306,355.457l136.189-136.189c7.478-7.478,19.584-7.478,27.042,0
+                                            C476.71,226.727,476.71,238.833,469.231,246.311z"/>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
