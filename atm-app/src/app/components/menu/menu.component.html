@@ -1,0 +1,22 @@
+<div class="align-center">You have {{currentAmount}} rupees in your account</div>
+
+<div class="withdraw-box">
+    <input type="text" placeholder="Enter amount to withdraw" #valueEntered>
+    <button class="btn" (click)="onWithdraw()" [disabled]="currentAmount < 500">Withdraw</button>
+</div>
+
+<div class="currency-container" *ngIf="count_5000.length > 0">
+    <div class="currency" *ngFor="let currency of count_5000">
+        <img src="../../../assets/currency_images/5000.jpg" alt="">
+    </div>
+</div>
+<div class="currency-container" *ngIf="count_1000.length > 0">
+    <div class="currency" *ngFor="let currency of count_1000">
+        <img src="../../../assets/currency_images/1000.jpg" alt="">
+    </div>
+</div>
+<div class="currency-container" *ngIf="count_500.length > 0">
+    <div class="currency" *ngFor="let currency of count_500">
+        <img src="../../../assets/currency_images/500.jpg" alt="">
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="row">
+    <button class="dial-pad" (click)="clearCalculations()">c</button>
+    <button class="dial-pad not-allowed">+/-</button>
+    <button class="dial-pad not-allowed">%</button>
+    <button class="operations" (click)="typeOperator($event)">/</button>
+</div>
+
+<div class="row">
+    <button class="dial-pad" (click)="typeNumber($event)">7</button>
+    <button class="dial-pad" (click)="typeNumber($event)">8</button>
+    <button class="dial-pad" (click)="typeNumber($event)">9</button>
+    <button class="operations" (click)="typeOperator($event)">x</button>
+</div>
+
+<div class="row">
+    <button class="dial-pad" (click)="typeNumber($event)">4</button>
+    <button class="dial-pad" (click)="typeNumber($event)">5</button>
+    <button class="dial-pad" (click)="typeNumber($event)">6</button>
+    <button class="operations" (click)="typeOperator($event)">-</button>
+</div>
+
+<div class="row">
+    <button class="dial-pad" (click)="typeNumber($event)">1</button>
+    <button class="dial-pad" (click)="typeNumber($event)">2</button>
+    <button class="dial-pad" (click)="typeNumber($event)">3</button>
+    <button class="operations" (click)="typeOperator($event)">+</button>
+</div>
+<div class="row">
+    <button class="dial-pad" (click)="typeNumber($event)">.</button>
+    <button class="dial-pad row-span-two" (click)="typeNumber($event)">0</button>
+    <!-- <button class="dial-pad" (click)="backspace()">del</button> -->
+    <button class="equal" (click)="calculate()">=</button>
+</div>

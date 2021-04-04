@@ -1,0 +1,45 @@
+.row {
+    // display: grid;
+
+    button {
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        outline: none;
+        margin: 0 0 0 0;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        font-size: 20px;
+
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: -3px 4px 18px 4px rgba(0, 0, 0, 0.5);
+        }
+        &:focus {
+            transform: scale(1.05);
+        }
+        &.row-span-two {
+            width: 160px !important;
+        }
+    }
+
+    .dial-pad {
+        background: #16181a;
+        border: 1px solid #423d3d;
+        color: #fff;
+        &.not-allowed {
+            cursor: not-allowed;
+        }
+    }
+    .operations {
+        background: #422c7c;
+        border: 1px solid #5c5ac5;
+        color: #fff;
+    }
+
+    .equal {
+        background: #f1d33c;
+        border: 1px solid #f1d33c;
+        color: #4d4d4d;
+    }
+}
