@@ -13,3 +13,6 @@
   Generate random passwords with mix characters of your choice. In case of success or error, get a notificaton popup as well<br/><br/> 
 7: Image editor<br/>
   Upload supported image and edit them with handy text tools and image filters on the go<br/><br/>
+  Generate random passwords with mix characters of your choice. In case of success or error, get a notificaton popup as well<br/><br/> 
+8: Todo app<br/>
+  Add your dail tasks. Check them out. Tasks will be added in beautiful colorful layout<br/><br/>
