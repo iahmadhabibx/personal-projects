@@ -1,0 +1,30 @@
+.todo{
+    height: 120px;
+    width: 350px;
+    border-radius: 2px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 5px;
+    transition: background 0.1s linear;
+}
+
+.todo-item {
+    color: #fff;
+    font-weight: bold;
+}
+
+.todo-item,.todo-options {
+    padding: 10px;
+}
+.todo-options {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=checkbox] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}

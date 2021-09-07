@@ -1,0 +1,28 @@
+.todo-form {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+.todo-input {
+    width: 220px;
+    padding: 10px 60px 10px 10px;
+    font-size: 18px;
+}
+.character-count {
+    position: absolute;
+    right: 114px;
+    font-size: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.todo-btn {
+    cursor: pointer;
+    padding: 8px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    background: yellowgreen;
+    color: #fff;
+    letter-spacing: 4px;
+    border: 1px solid #363d28;
+}
