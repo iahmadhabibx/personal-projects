@@ -16,3 +16,5 @@
   Generate random passwords with mix characters of your choice. In case of success or error, get a notificaton popup as well<br/><br/> 
 8: Todo app<br/>
   Add your dail tasks. Check them out. Tasks will be added in beautiful colorful layout<br/><br/>
+8: Ping Pong<br/>
+  Play the game of ping pong with the fake AI<br/><br/>
