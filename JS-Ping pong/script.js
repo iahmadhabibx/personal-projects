@@ -9,7 +9,7 @@ const computerScoreElem = document.getElementById("computer-score");
 
 let lastTime;
 
-function update(time) {
+const update = (time) => {
     if (lastTime != null) {
         const delta = time - lastTime;
         ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
@@ -25,12 +25,12 @@ function update(time) {
     window.requestAnimationFrame(update);
 }
 
-function lostGame() {
+const lostGame = () => {
     const rect = ball.rect();
     return rect.right >= window.innerWidth || rect.left <= 0
 }
 
-function handleLostGame() {
+const handleLostGame = ()=> {
     const rect = ball.rect();
     if (rect.right > window.innerWidth) {
         playerScoreElem.textContent = parseInt(playerScoreElem.textContent) + 1;
@@ -39,6 +39,7 @@ function handleLostGame() {
     }
     ball.reset();
     computerPaddle.reset();
+    document.removeEventListener("mousemove", e =>  playerPaddle.position = (e.y / window.innerHeight) * 100);
 }
 
 
